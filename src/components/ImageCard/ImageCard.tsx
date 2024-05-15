@@ -1,6 +1,11 @@
 import css from './ImageCard.module.css';
+import { Image } from '../../models/ImageModel';
+type Props = {
+  imageInfo: Image;
+  openModal: (bigSize: string) => void;
+};
 
-const ImageCard = ({ imageInfo, openModal }) => {
+const ImageCard = ({ imageInfo, openModal }: Props) => {
   return (
     <div>
       <div>

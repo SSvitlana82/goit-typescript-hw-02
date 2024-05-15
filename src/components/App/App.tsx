@@ -1,25 +1,26 @@
 import { useEffect, useState } from 'react';
+import { Image } from '../../models/ImageModel';
 
 import './App.css';
-import { searchImages } from './unsplash-api';
-import SearchBar from './components/SearchBar/SearchBar';
-import ImageGallery from './components/ImageGallery/ImageGallery';
-import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
-import Loader from './components/Loader/Loader';
-import ImageModal from './components/ImageModal/ImageModal';
-import ErrorMessage from './components/ErrorMessage/ErrorMessage';
+import { searchImages } from '../../unsplash-api';
+import SearchBar from '../SearchBar/SearchBar';
+import ImageGallery from '../ImageGallery/ImageGallery';
+import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
+import Loader from '../Loader/Loader';
+import ImageModal from '../ImageModal/ImageModal';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 function App() {
-  const [gallery, setGallery] = useState([]);
-  const [query, setQuery] = useState('');
-  const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [imageUrl, setImageUrl] = useState('');
-  const [errorMessage, setErrorMessage] = useState(false);
-  const [lastPage, setLastPage] = useState(0);
+  const [gallery, setGallery] = useState<Image[]>([]);
+  const [query, setQuery] = useState<string>('');
+  const [page, setPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [imageUrl, setImageUrl] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<boolean>(false);
+  const [lastPage, setLastPage] = useState<number>(0);
 
-  const onSubmit = query => {
+  const onSubmit = (query: string) => {
     setPage(1);
     setQuery(query);
     setGallery([]);
@@ -46,12 +47,12 @@ function App() {
     fetchImage();
   }, [query, page]);
 
-  const loadMore = () => {
+  const loadMore = (): void => {
     setPage(page + 1);
   };
   const showLoadMore = gallery.length > 0 && page !== lastPage;
 
-  const openModal = bigSize => {
+  const openModal = (bigSize: string): void => {
     setModalIsOpen(true);
     setImageUrl(bigSize);
   };

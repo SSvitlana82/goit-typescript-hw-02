@@ -1,10 +1,14 @@
 import ImageCard from '../ImageCard/ImageCard';
 import css from './ImageGallery.module.css';
-
-const ImageGallery = ({ gallery, openModal }) => {
+import { Image } from '../../models/ImageModel';
+type Props = {
+  gallery: Image[];
+  openModal: (bigSize: string) => void;
+};
+const ImageGallery = ({ gallery, openModal }: Props) => {
   console.log(gallery[0]?.urls.small);
   return (
-    <div className={css.galleryBox}> 
+    <div className={css.galleryBox}>
       <ul className={css.galleryList}>
         {gallery.map(imageInfo => {
           return (

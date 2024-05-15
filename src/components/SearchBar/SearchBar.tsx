@@ -1,14 +1,16 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, FormEvent } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import css from './SearchBar.module.css';
 import { BsSearch } from 'react-icons/bs';
-
-const SearchBar = ({ onSubmit }) => {
-  const inputRef = useRef();
-  const handleSubmit = event => {
+type Props = {
+  onSubmit: (query: string) => void;
+};
+const SearchBar = ({ onSubmit }: Props) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    const form = event.target;
-    const search = inputRef.current.value.trim();
+    const form = event.target as HTMLFormElement;
+    const search = inputRef?.current?.value.trim() || '';
 
     if (search.length !== 0) {
       onSubmit(search);
@@ -29,8 +31,8 @@ const SearchBar = ({ onSubmit }) => {
           className={css.input}
           ref={inputRef}
           type="text"
-          autocomplete="off"
-          autofocus
+          autoComplete="off"
+          autoFocus
           placeholder="Search images and photos"
         />
       </form>
