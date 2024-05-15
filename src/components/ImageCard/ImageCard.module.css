@@ -1,0 +1,20 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 250px;
+  height: 152px;
+  border: 1px solid transparent;
+  padding: 0;
+
+  background-color: var(--color-light);
+
+  border-radius: 5px;
+  overflow: hidden;
+  object-fit: cover;
+
+  cursor: pointer;
+}

@@ -1,0 +1,20 @@
+.backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.61);
+  inset: 0px;
+  z-index: 10;
+}
+.modal {
+  display: flex;
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+}
+.image {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}

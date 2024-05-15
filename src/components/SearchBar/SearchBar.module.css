@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgb(22, 90, 126) 0%,
+    rgb(14, 131, 194) 19%
+  );
+}
+
+.form {
+  display: flex;
+  width: 900px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.input {
+  display: flex;
+  width: 50%;
+  border-style: none;
+  border-bottom: 1px solid #212121;
+  background-color: white;
+  padding: 10px;
+  padding-right: 0;
+  outline: none;
+  margin-top: 10px;
+}
+
+.btn {
+  width: 30px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  position: center;
+  top: 0;
+  right: 0;
+  border-radius: 0;
+  background-color: white;
+  border-bottom: 1px solid #212121;
+  margin-top: 10px;
+  margin-left: 20%;
+}
+.search {
+  margin: auto;
+  display: flex;
+}
